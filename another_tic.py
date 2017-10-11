@@ -118,7 +118,7 @@ def quit_retry():
     else:
         print("Invalid character entered")
         return quit_retry()
-    
+
 
 def winner(run_game,player,computer,board):
     if(board[0] == player and board[1] == player and board[2] == player or
@@ -133,7 +133,7 @@ def winner(run_game,player,computer,board):
         run_game = False
         draw_board(board)
         return quit_retry()
-    
+
     elif(board[0] == computer and board[1] == computer and board[2] == computer or
        board[0] == computer and board[3] == computer and board[6] == computer or
        board[0] == computer and board[4] == computer and board[8] == computer or
@@ -146,7 +146,7 @@ def winner(run_game,player,computer,board):
         draw_board(board)
         run_game = False
         return quit_retry()
-    
+
     elif(board[0] != ' ' and board[1] != ' ' and board[2] != ' ' and
          board[3] != ' ' and board[4] != ' ' and board[5] != ' ' and
          board[6] != ' ' and board[7] != ' ' and board[8] != ' '):
@@ -154,31 +154,31 @@ def winner(run_game,player,computer,board):
         draw_board(board)
         run_game = False
         return quit_retry()
-       
+
 def main():
-    
+
     board = [' ',' ',' ',' ',' ',' ',' ',' ',' ']
     player = ''
     computer = ''
     player, computer = player_select(player,computer)
     run_game = True
 
-    print("\n\nPlayer is %s and computer is %s" % (player,computer))
+    print("\n\nPlayer is %s and computers is %s" % (player,computer))
 
     while(run_game == True):
         player_f_move = random.randint(1,9)
         computer_f_move = random.randint(1,9)
-        
+
         if(player_f_move > computer_f_move):
             player_choice(player,computer,board,run_game)
-            
+
         elif(computer_f_move > player_f_move):
             computer_choice(computer,player,board,run_game)
 
         elif(run_game == False):
             quit_retry()
-            
-        
-    
+
+
+
 
 main()
